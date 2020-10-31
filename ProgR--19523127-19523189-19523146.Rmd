@@ -1,0 +1,63 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+#1 - Set
+U <- c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19)
+U
+B <- c(1,2,3,5,7,11,13,17,19)
+B
+C <- c(2,4,6,8,10,12,14,16,18)
+C
+A <- c(1,2,3,4,5,6,7,8,9,10)
+A
+aub <- union(A, B)
+aub
+abc <- union(aub, C)
+abc
+```
+```{r}
+#2 - Fungsi
+
+#(a)
+f <- function(x) {
+  hasil <- x^3 + x^2 - 6
+  return(hasil)
+}
+input <- -10:10
+plot(input, sapply(input, f), type = "l", xlab = "x", ylab = "f(x)")
+
+```
+
+```{r}
+#(b)
+f <- function(x) {
+  fx <- -x^2 - 6
+  return(fx)
+}
+input <- 1:10
+plot(input,  sapply(input, f), type = "l", xlab = "x", ylab = "Grafik f(x)")
+```
+```{r}
+#3 - Limit
+yac_expr("Limit(x,0) (x^4-x^2)/(x^3+x^2)*(sin(x)/x)+ cos(x)")
+```
+```{r}
+yac_str("Limit(x,0) (x^4-x^2)/(x^3+x^2)*(sin(x)/x)+ cos(x)")
+```
+```{r}
+#4- Differentation
+empat <- function(x) {
+  return(sin(x^2) / x^2 %*% (x+1))
+}
+library(Ryacas)
+yac_expr("D(x) x^2 ")
+```
+```{r}
+#5 - Integration
+x <- Sym("x")
+Integrate(x^2 * (cos(x^3+pi)) * (sin(x^3+pi)), x)
+```
+
